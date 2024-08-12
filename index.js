@@ -224,12 +224,26 @@ async function sendBackup() {
 }
 
 // A!yedekle komutu kullanıldığında yedekleme fonksiyonunu çağır
-client.on('messageCreate', async (message) => {
     if (message.content === 'A!yedekle') {
-        await sendBackup();
-        message.channel.send('Yedek dosyaları başarıyla gönderildi.');
+        if (isBackingUp) {
+            return message.channel.send('Yedekleme işlemi hâlihazırda devam ediyor. Lütfen bekleyin.');
+        }
+
+        isBackingUp = true; // Yedekleme işlemi başladı
+        message.channel.send('Yedekleme işlemi başlatılıyor...');
+
+        try {
+            await sendBackup(); // Yedekleme fonksiyonunu çağır
+            message.channel.send('Yedek dosyaları başarıyla gönderildi.');
+        } catch (error) {
+            console.error('Yedekleme sırasında bir hata oluştu:', error);
+            message.channel.send('Yedekleme işlemi sırasında bir hata oluştu. Lütfen tekrar deneyin.');
+        } finally {
+            isBackingUp = false; // Yedekleme işlemi bitti
+        }
     }
 });
+
 
 // Her saat başında yedek dosyalarını gönder
 setInterval(() => {
@@ -258,12 +272,12 @@ if (message.content === 'A!yardım') {
     .setTitle('Bot Komutları')
     .setDescription('Aşağıda botun tüm komutları listelenmiştir:')
     .addFields(
-      { name: ' <a:butterfly5:1230240683319623830>A!puan [@kullanıcı]', value: 'Kullanıcının puan durumunu gösterir.', inline: true },
-      { name: ' <a:butterfly5:1230240683319623830> A!top', value: 'Haftalık en çok puan toplayan kullanıcıları gösterir.', inline: true },
-      { name: ' <a:butterfly5:1230240683319623830>A!topserver', value: 'Sunucuda en çok puan toplayan kullanıcıyı gösterir.', inline: true },
-      { name: ' <a:butterfly5:1230240683319623830> A!alltop', value: 'Tüm sunuculardaki en çok puan toplayan kullanıcıları gösterir.', inline: true },
-      { name: ' <a:butterfly5:1230240683319623830> A!yedekle', value: 'Veri yedeği oluşturur.', inline: true },
-      { name: ' <a:butterfly5:1230240683319623830> A!bilgi', value: 'Bot hakkında bilgi verir.', inline: true },
+      { name: ' <:yes:1272441451543789641>A!puan [@kullanıcı]', value: 'Kullanıcının puan durumunu gösterir.', inline: true },
+      { name: ' <:yes:1272441451543789641> A!top', value: 'Haftalık en çok puan toplayan kullanıcıları gösterir.', inline: true },
+      { name: ' <:yes:1272441451543789641>A!topserver', value: 'Sunucuda en çok puan toplayan kullanıcıyı gösterir.', inline: true },
+      { name: ' <:yes:1272441451543789641> A!alltop', value: 'Tüm sunuculardaki en çok puan toplayan kullanıcıları gösterir.', inline: true },
+      { name: ' <:yes:1272441451543789641> A!yedekle', value: 'Veri yedeği oluşturur.', inline: true },
+      { name: ' <:yes:1272441451543789641> A!bilgi', value: 'Bot hakkında bilgi verir.', inline: true },
       // Diğer komutlarınızı buraya ekleyebilirsiniz
     )
     .setFooter({ text: 'Daha fazla bilgi için komutları deneyebilirsiniz!' });
