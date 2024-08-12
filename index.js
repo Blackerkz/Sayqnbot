@@ -114,13 +114,13 @@ client.on('messageCreate', async message => {
 
     const replyEmbed = new EmbedBuilder()
       .setColor('#00FF00')
-      .setTitle('<a:kelebek:1271049122090192958> Yeni Partner <a:kelebek:1271049122090192958>')
-      .setDescription(`<a:kelebek:1271049122090192958> ︰Yeni partner için teşekkürler <@${userId}>!`)
+      .setTitle('<a:kelebek:1272421045000736882> Yeni Partner <a:kelebek:1272421045000736882>')
+      .setDescription(`<a:kelebek:1272421045000736882> ︰Yeni partner için teşekkürler <@${userId}>!`)
       .addFields(
-        { name: '<a:kelebek:1271049122090192958> Haftalık Puan', value: `${userWeeklyPoints} <:ohacus:1252301623192060025>` },
-        { name: '<a:kelebek:1271049122090192958> Toplam Puan', value: `${userAllTimePoints} <:ohacus:1252301623192060025>` },
-        { name: '<a:kelebek:1271049122090192958> Haftalık Sıralama', value: `${userWeeklyRank}<:ohacus:1252301623192060025>` },
-        { name: '<a:kelebek:1271049122090192958> Toplam Sıralama', value: `${userAllTimeRank}<:ohacus:1252301623192060025>` },
+        { name: '<a:kelebek:1272421045000736882> Haftalık Puan', value: `${userWeeklyPoints} <:ohacus:1252301623192060025>` },
+        { name: '<a:kelebek:1272421045000736882> Toplam Puan', value: `${userAllTimePoints} <:ohacus:1252301623192060025>` },
+        { name: '<a:kelebek:1272421045000736882> Haftalık Sıralama', value: `${userWeeklyRank}<:ohacus:1252301623192060025>` },
+        { name: '<a:kelebek:1272421045000736882> Toplam Sıralama', value: `${userAllTimeRank}<:ohacus:1252301623192060025>` },
       );
 
     message.channel.send({ embeds: [replyEmbed] });
@@ -140,16 +140,16 @@ const botInfoEmbed = new EmbedBuilder()
     .setTitle('Bot Bilgisi')
     .setDescription('Aşağıda bot hakkında bazı bilgiler bulunmaktadır:')
     .addFields(
-      { name: 'Bot Adı <:5209chibipaimonthink:1195643511433859072> ', value: `${client.user.username}`, inline: true },
-      { name: 'Bot ID <:5209chibipaimonthink:1195643511433859072> ', value: `${client.user.id}`, inline: true },
-      { name: 'Destek Sunucusu <:Cenzuoyeah:1207061939990175824> ', value: `[Buraya tıklayın](https://discord.gg/FUTaWCytme)`, inline: true },
-      { name: 'Toplam Sunucu Sayısı <:Cenzuoyeah:1207061939990175824> ', value: `${client.guilds.cache.size}`, inline: true },
-      { name: 'Toplam Kullanıcı Sayısı <:Cenzuoyeah:1207061939990175824> ', value: `${totalUsers}`, inline: true },
-      { name: 'Yapımcı <:silahlkedyremovebgpreview:1244232770939654184>', value: 'Keke_km', inline: true },
-      { name: 'Versiyon <:silahlkedyremovebgpreview:1244232770939654184> ', value: '0.0.0', inline: true },
-      { name: 'Uptime <:9878jettsleepy:1207080216279781446>', value: `<t:${uptimeUnixTimestamp}:R>`, inline: true },
-      { name: 'Ping <:kedigojo:1253800303719878668> ', value: `${client.ws.ping}ms`, inline: true },
-      { name: 'Prefix <:kedigojo:1253800303719878668> ', value: `A!`, inline: true }
+      { name: 'Bot Adı <<:focacomfy:1272421146544963646>1195643511433859072> ', value: `${client.user.username}`, inline: true },
+      { name: 'Bot ID <<:focacomfy:1272421146544963646>1195643511433859072> ', value: `${client.user.id}`, inline: true },
+      { name: 'Destek Sunucusu <a:1725nezukorun:1272422618133303389> ', value: `[Buraya tıklayın](https://discord.gg/FUTaWCytme)`, inline: true },
+      { name: 'Toplam Sunucu Sayısı <a:1725nezukorun:1272422618133303389> ', value: `${client.guilds.cache.size}`, inline: true },
+      { name: 'Toplam Kullanıcı Sayısı <a:1725nezukorun:1272422618133303389> ', value: `${totalUsers}`, inline: true },
+      { name: 'Yapımcı<a:zerotwopat88:1272422926649655318>', value: 'Keke_km', inline: true },
+      { name: 'Versiyon<a:zerotwopat88:1272422926649655318> ', value: '0.0.0', inline: true },
+      { name: 'Uptime <a:kannaaglamak:1272424221968171061>', value: `<t:${uptimeUnixTimestamp}:R>`, inline: true },
+      { name: 'Ping <a:kannaaglamak:1272424221968171061> ', value: `${client.ws.ping}ms`, inline: true },
+      { name: 'Prefix <a:kannaaglamak:1272424221968171061> ', value: `A!`, inline: true }
     ) // Noktalı virgül kaldırıldı
     .setFooter({ text: 'Bilgiler güncellenebilir.', iconURL: client.user.displayAvatarURL() })
     .setTimestamp();
