@@ -140,9 +140,9 @@ const botInfoEmbed = new EmbedBuilder()
     .setTitle('Bot Bilgisi')
     .setDescription('Aşağıda bot hakkında bazı bilgiler bulunmaktadır:')
     .addFields(
-      { name: 'Bot Adı <<:focacomfy:1272421146544963646>1195643511433859072> ', value: `${client.user.username}`, inline: true },
-      { name: 'Bot ID <<:focacomfy:1272421146544963646>1195643511433859072> ', value: `${client.user.id}`, inline: true },
-      { name: 'Destek Sunucusu <a:1725nezukorun:1272422618133303389> ', value: `[Buraya tıklayın](https://discord.gg/FUTaWCytme)`, inline: true },
+      { name: 'Bot Adı <:focacomfy:1272421146544963646> ', value: `${client.user.username}`, inline: true },
+      { name: 'Bot ID <:focacomfy:1272421146544963646> ', value: `${client.user.id}`, inline: true },
+      { name: 'Destek Sunucusu <a:1725nezukorun:1272422618133303389> ', value: `[BURDAGGG](https://discord.com/invite/shido-bing-anime-manga-1168636595314888714)`, inline: true },
       { name: 'Toplam Sunucu Sayısı <a:1725nezukorun:1272422618133303389> ', value: `${client.guilds.cache.size}`, inline: true },
       { name: 'Toplam Kullanıcı Sayısı <a:1725nezukorun:1272422618133303389> ', value: `${totalUsers}`, inline: true },
       { name: 'Yapımcı<a:zerotwopat88:1272422926649655318>', value: 'Keke_km', inline: true },
@@ -150,7 +150,7 @@ const botInfoEmbed = new EmbedBuilder()
       { name: 'Uptime <a:kannaaglamak:1272424221968171061>', value: `<t:${uptimeUnixTimestamp}:R>`, inline: true },
       { name: 'Ping <a:kannaaglamak:1272424221968171061> ', value: `${client.ws.ping}ms`, inline: true },
       { name: 'Prefix <a:kannaaglamak:1272424221968171061> ', value: `A!`, inline: true }
-    ) // Noktalı virgül kaldırıldı
+    ) 
     .setFooter({ text: 'Bilgiler güncellenebilir.', iconURL: client.user.displayAvatarURL() })
     .setTimestamp();
 
@@ -162,7 +162,7 @@ if (message.content.startsWith('A!afk')) {
     const reason = message.content.split(' ').slice(1).join(' ') || 'Sebep belirtilmedi.';
     afkUsers.set(message.author.id, { reason, timestamp: Date.now() });
     saveAfkUsers(); // Kullanıcıyı kaydet
-    message.reply(`AFK duruma alındınız. Sebep: ${reason}`);
+    message.reply(`Artık Afk Oldun Cano . Sebep: ${reason}`);
 } else {
     // AFK olan kullanıcıları etiketleyenler
     const afkData = afkUsers.get(message.author.id);
@@ -170,7 +170,7 @@ if (message.content.startsWith('A!afk')) {
         // Kullanıcı AFK ise, durumu kaldır
         afkUsers.delete(message.author.id);
         saveAfkUsers(); // Güncellemeleri kaydet
-        message.reply(`AFK durumunuz kaldırıldı. Geçen süre: ${Math.floor((Date.now() - afkData.timestamp) / 1000)} saniye.`);
+        message.reply(` <:sei_iciyorum:1272428797395996744> AFK Değilsin Artık... Geçen süre: ${Math.floor((Date.now() - afkData.timestamp) / 1000)} saniye.`);
     } else {
         // AFK olan kullanıcıyı kontrol et
         const mentionedUser = message.mentions.users.first();
@@ -179,7 +179,7 @@ if (message.content.startsWith('A!afk')) {
             const afkDuration = Math.floor((Date.now() - mentionedAfkData.timestamp) / 1000);
             const afkUnixTimestamp = Math.floor(mentionedAfkData.timestamp / 1000); // AFK zaman damgası Unix olarak
 
-            message.reply(`Üzgünüm, ${mentionedUser.username} AFK. Sebep: ${mentionedAfkData.reason}, AFK kalma süresi: <t:${afkUnixTimestamp}:R>`);
+            message.reply(` <a:weeb28:1272427451485786123> Eleman ,  ${mentionedUser.username} Afk lo. Sebep: ${mentionedAfkData.reason}, AFK kalma süresi: <t:${afkUnixTimestamp}:R>`);
         }
     }
 }
